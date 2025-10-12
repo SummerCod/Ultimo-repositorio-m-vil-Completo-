@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Sistema de gestion",
+    "slug": "Jeanpiaget",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/apklogo.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/Bienvenido.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Usamos Face ID para verificar tu identidad al actualizar información sensible del perfil."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/apklogo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Usamos Face ID para verificar tu identidad al actualizar información sensible del perfil."
+        }
+      ],
+      "expo-font"
+    ]
+  }
+}
