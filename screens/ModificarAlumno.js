@@ -280,7 +280,7 @@ export default function ModificarAlumno() {
       const alumnoRef = doc(db, "alumnos", alumno.id);
       
       await updateDoc(alumnoRef, {
-        dni_alumno: parseInt(dniAlumno),
+        dni_alumno: dniAlumno,
         nombre_alumno: nombreAlumno.trim(),
         apellido_alumno: apellidoAlumno.trim(),
         fecha_nacimiento_alumno: fechaNacimientoDate,
@@ -288,7 +288,7 @@ export default function ModificarAlumno() {
         observaciones_alumno: observaciones.trim(),
         id_grado: gradoSeleccionado,
         nombre_grado: gradoData.nombre_grado,
-        dni_tutor: parseInt(dniTutor),
+        dni_tutor: dniTutor,
         nombre_tutor: nombreTutor.trim(),
         apellido_tutor: apellidoTutor.trim(),
         correo_tutor: correoTutor.toLowerCase().trim(),
@@ -662,7 +662,7 @@ export default function ModificarAlumno() {
                       value={observaciones}
                       onChangeText={setObservaciones}
                       placeholder="Ingrese observaciones"
-                      maxLength={250}
+                      maxLength={100}
                       multiline
                       numberOfLines={3}
                       onFocus={() => setDetailFocused(true)}

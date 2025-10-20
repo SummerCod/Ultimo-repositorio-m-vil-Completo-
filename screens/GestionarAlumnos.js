@@ -45,6 +45,16 @@ export default function GestionarAlumnos() {
   const [filteredAlumnos, setFilteredAlumnos] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
+
+  //Validaciones
+  const validadorsolonumeros = /^\d+$/
+
+
+  const validarSearch = (dni) => {
+    if (dni === '' || validadorsolonumeros.test(dni)) {
+      setSearchText(dni);
+    }
+  };
   
   // --- FUNCIONES ---
   const showCustomAlert = (title, message, confirmAction, type = "error", needsCancel = false) => {
@@ -218,7 +228,7 @@ export default function GestionarAlumnos() {
           const userData = docSnap.data();
           setImageUri(userData.photoURL || null);
         } else {
-          console.log("No se encontraron datos para este usuario.");
+          console.log("No se encontraron datos para este usuario (ola).");
         }
       } else {
         navigation.replace('Login');
@@ -450,7 +460,7 @@ export default function GestionarAlumnos() {
                 style={styles.searchInput}
                 placeholder="Buscar por DNI"
                 value={searchText}
-                onChangeText={setSearchText}
+                onChangeText={validarSearch}
                 keyboardType="numeric"
                 maxLength={8}
                 onFocus={() => setSearchFocused(true)}

@@ -238,7 +238,7 @@ export default function AddAlumnos() {
       const fechaNacimientoDate = new Date(año, mes - 1, dia);
 
       const nuevoAlumno = {
-        dni_alumno: parseInt(dniAlumno),
+        dni_alumno: dniAlumno,
         nombre_alumno: nombreAlumno.trim(),
         apellido_alumno: apellidoAlumno.trim(),
         fecha_nacimiento_alumno: fechaNacimientoDate,
@@ -247,7 +247,7 @@ export default function AddAlumnos() {
         estado_alumno: true,
         id_grado: gradoSeleccionado,
         nombre_grado: gradoData.nombre_grado,
-        dni_tutor: parseInt(dniTutor),
+        dni_tutor: dniTutor,
         nombre_tutor: nombreTutor.trim(),
         apellido_tutor: apellidoTutor.trim(),
         correo_tutor: correoTutor.toLowerCase().trim(),
@@ -565,7 +565,7 @@ export default function AddAlumnos() {
                 placeholder="Ingrese observaciones" 
                 value={observaciones} 
                 onChangeText={setObservaciones}
-                maxLength={250}
+                maxLength={100}
                 multiline
                 numberOfLines={3}
                 onFocus={() => setDetailFocused(true)}
