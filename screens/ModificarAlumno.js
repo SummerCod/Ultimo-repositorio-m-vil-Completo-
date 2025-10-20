@@ -238,7 +238,7 @@ export default function ModificarAlumno() {
         return;
       }
 
-      // NUEVA VALIDACIÓN: Verificar que el DNI del tutor no coincida con el DNI de ningún alumno
+      //  Verificar que el DNI del tutor no coincida con el DNI de ningún alumno
       const tutorComoAlumnoQuery = query(
         collection(db, "alumnos"), 
         where("dni_alumno", "==", parseInt(dniTutor))

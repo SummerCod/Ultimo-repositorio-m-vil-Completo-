@@ -218,6 +218,19 @@ export default function AddAlumnos() {
         return;
       }
 
+      //  Verificar que el DNI del tutor no coincida con el DNI de ningún alumno
+      const tutorComoAlumnoQuery = query(
+        collection(db, "alumnos"), 
+        where("dni_alumno", "==", parseInt(dniTutor))
+      );
+      const tutorComoAlumnoSnapshot = await getDocs(tutorComoAlumnoQuery);
+      
+      if (!tutorComoAlumnoSnapshot.empty) {
+        showCustomAlert("Error", "El DNI del tutor ya se encuentra registrado en otro alumno. Por favor, verifique los datos.", () => setShowAlert(false), "error", false);
+        setLoading(false);
+        return;
+      }
+
       const gradoDoc = await getDoc(doc(db, "grados", gradoSeleccionado));
       const gradoData = gradoDoc.data();
 
