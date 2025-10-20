@@ -233,31 +233,6 @@ export default function HomeSecretaria() {
                 </TouchableOpacity>
               </View>
 
-              {/* Tarjeta Gestionar Tutores */}
-              <View style={styles.moduleCard}>
-                <View style={styles.cardRedLine} />
-                <View style={styles.cardHeader}>
-                  {/* ESTILO ESPECÍFICO PARA TUTORES */}
-                  <Image 
-                    source={require('../assets/Tutores.png')}
-                    style={styles.cardIconTutores}
-                  />
-                  <View style={styles.cardTitleSection}>
-                    <Text style={styles.cardTitle}>Gestionar</Text>
-                    <Text style={styles.cardSubtitle}>Tutores</Text>
-                  </View>
-                </View>
-                <TouchableOpacity 
-                  style={styles.cardFooter}
-                  onPress={() => navigation.navigate('GestionarTutores')}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.cardDescription}>
-                    Gestione la información de tutores y representantes legales, datos de contacto y vinculación familiar.
-                  </Text>
-                  <Text style={styles.cardArrow}>›</Text>
-                </TouchableOpacity>
-              </View>
             </View>
 
             {/* Espacio adicional para asegurar que el footer se vea */}
