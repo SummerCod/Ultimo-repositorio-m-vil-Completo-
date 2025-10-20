@@ -433,7 +433,7 @@ const handleUpdateProfile = async () => {
                 </View>
 
                 <View>
-                  <Text style={styles.inputLabel}>Nombre ({nombre})</Text>
+                  <Text style={styles.inputLabel}>Nombre:</Text>
                   <View style={[styles.inputContainer, firstNameFocused && styles.inputContainerFocused]}>
                     <FontAwesome name="user" size={20} style={styles.inputIcon} />
                     <TextInput
@@ -446,7 +446,7 @@ const handleUpdateProfile = async () => {
                     />
                   </View>
 
-                  <Text style={styles.inputLabel}>Apellido ({apellido})</Text>
+                  <Text style={styles.inputLabel}>Apellido:</Text>
                   <View style={[styles.inputContainer, lastNameFocused && styles.inputContainerFocused]}>
                     <FontAwesome name="user" size={20} style={styles.inputIcon} />
                     <TextInput
@@ -459,7 +459,7 @@ const handleUpdateProfile = async () => {
                     />
                   </View>
                   {/* Validación del correo */}
-                  <Text style={styles.inputLabel}>Correo ({correo})</Text>
+                  <Text style={styles.inputLabel}>Correo:</Text>
                   <View style={[styles.inputContainer, emailFocused && styles.inputContainerFocused]}>
                     <Ionicons name="mail" size={20} style={styles.inputIcon} />
                     <TextInput
