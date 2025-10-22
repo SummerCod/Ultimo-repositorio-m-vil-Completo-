@@ -242,7 +242,7 @@ export default function AddAlumnos() {
         nombre_alumno: nombreAlumno.trim(),
         apellido_alumno: apellidoAlumno.trim(),
         fecha_nacimiento_alumno: fechaNacimientoDate,
-        genero_alumno: genero === 'Masculino' ? 'M' : 'F',
+        genero_alumno: genero === 'Masculino' ? 'M' : 'X'|| genero === 'Femenino' ? 'F' : 'X',
         observaciones_alumno: observaciones.trim() || '',
         estado_alumno: true,
         id_grado: gradoSeleccionado,
@@ -487,7 +487,7 @@ export default function AddAlumnos() {
               <Text style={styles.formTitle}>Registro Alumno</Text>
 
               {/* SECCIÓN DATOS DEL ALUMNO */}
-              <Text style={styles.label}>Nombre:</Text>
+              <Text style={styles.label}>Nombre *</Text>
               <TextInput style={[styles.input, firstNameAlumnoFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el nombre" 
               value={nombreAlumno} 
@@ -496,7 +496,7 @@ export default function AddAlumnos() {
               onFocus={() => setFirstNameAlumnoFocused(true)}
               onBlur={() => setFirstNameAlumnoFocused(false)} />
               
-              <Text style={styles.label}>Apellido:</Text>
+              <Text style={styles.label}>Apellido *</Text>
               <TextInput style={[styles.input, lastNameAlumnoFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el apellido" 
               value={apellidoAlumno} 
@@ -505,7 +505,7 @@ export default function AddAlumnos() {
               onFocus={() => setLastNameAlumnoFocused(true)}
               onBlur={() => setLastNameAlumnoFocused(false)} />
               
-              <Text style={styles.label}>DNI:</Text>
+              <Text style={styles.label}>DNI *</Text>
               <TextInput style={[styles.input, dniAlumnoFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el DNI" 
               keyboardType="numeric" 
@@ -519,7 +519,7 @@ export default function AddAlumnos() {
                   El DNI del alumno no puede ser el mismo que el del tutor.
                 </Text>
               )}
-              <Text style={styles.label}>Fecha de nacimiento:</Text>
+              <Text style={styles.label}>Fecha de nacimiento *</Text>
               <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.dateInputContainer}>
                 <Text style={[styles.dateInput, { color: fechaNacimiento ? '#000' : '#999' }]}>
                   {fechaNacimiento || "DD-MM-AAAA"}
@@ -527,7 +527,7 @@ export default function AddAlumnos() {
                 <FontAwesome name="calendar" size={20} color="#666" />
               </TouchableOpacity>
               
-              <Text style={styles.label}>Género:</Text>
+              <Text style={styles.label}>Género *</Text>
               <View style={styles.genderContainer}>
                 <TouchableOpacity style={styles.checkboxWrapper} onPress={() => setGenero('Masculino')}>
                   <View style={[styles.checkbox, genero === 'Masculino' && styles.checkboxSelected]}>
@@ -541,9 +541,19 @@ export default function AddAlumnos() {
                   </View>
                   <Text style={styles.checkboxLabel}>Femenino</Text>
                 </TouchableOpacity>
+                <TouchableOpacity 
+                  style={styles.checkboxWrapper} 
+                  onPress={() => setGenero('X')}
+                >
+                  <View style={[styles.checkbox, genero === 'X' && styles.checkboxSelected]}>
+                    {genero === 'X' && <Ionicons name="checkmark" size={16} color="white" />}
+                  </View>
+                  <Text style={styles.checkboxLabel}>X</Text>
+                </TouchableOpacity>
+
               </View>
               
-              <Text style={styles.label}>Grado:</Text>
+              <Text style={styles.label}>Grado *</Text>
               <View style={styles.pickerContainer}>
                 <Picker
                   selectedValue={gradoSeleccionado}
@@ -594,7 +604,7 @@ export default function AddAlumnos() {
                 </View>
               </View>
 
-              <Text style={styles.label}>Nombre:</Text>
+              <Text style={styles.label}>Nombre *</Text>
               <TextInput style={[styles.input, firstNameTutorFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el nombre" 
               value={nombreTutor} 
@@ -603,7 +613,7 @@ export default function AddAlumnos() {
               onFocus={() => setFirstNameTutorFocused(true)}
               onBlur={() => setFirstNameTutorFocused(false)} />
               
-              <Text style={styles.label}>Apellido:</Text>
+              <Text style={styles.label}>Apellido *</Text>
               <TextInput style={[styles.input, lastNameTutorFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el apellido" 
               value={apellidoTutor} 
@@ -612,7 +622,7 @@ export default function AddAlumnos() {
               onFocus={() => setLastNameTutorFocused(true)}
               onBlur={() => setLastNameTutorFocused(false)} />
               
-              <Text style={styles.label}>DNI:</Text>
+              <Text style={styles.label}>DNI *</Text>
               <TextInput style={[styles.input, dniTutorFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el DNI" 
               keyboardType="numeric" 
@@ -626,7 +636,7 @@ export default function AddAlumnos() {
                   El DNI del tutor no puede ser el mismo que el del alumno.
                 </Text>
               )}
-              <Text style={styles.label}>Correo:</Text>
+              <Text style={styles.label}>Correo *</Text>
               <TextInput style={[styles.input, emailFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el correo" 
               keyboardType="email-address" 
@@ -637,7 +647,7 @@ export default function AddAlumnos() {
               onFocus={() => setEmailFocused(true)}
               onBlur={() => setEmailFocused(false)} />
 
-              <Text style={styles.label}>Telefono:</Text>
+              <Text style={styles.label}>Telefono *</Text>
               <TextInput style={[styles.input, telefonoFocused && styles.inputContainerFocused]} 
               placeholder="Ingrese el telefono" 
               keyboardType="numeric" 
@@ -647,6 +657,8 @@ export default function AddAlumnos() {
               maxLength={11}
               onFocus={() => setTelefonoFocused(true)}
               onBlur={() => setTelefonoFocused(false)} />
+
+              <Text style={styles.colorgris}>Todos los campos con (*) son OBLIGATORIOS.</Text>
               
 
               {/* BOTONES DE ACCIÓN */}
@@ -1087,5 +1099,8 @@ const styles = StyleSheet.create({
   inputContainerFocused: {
     borderColor: "#1E2A78",
     borderWidth: 2,
+  },
+  colorgris: {
+    color: "gray",
   },
 });

@@ -284,7 +284,7 @@ export default function ModificarAlumno() {
         nombre_alumno: nombreAlumno.trim(),
         apellido_alumno: apellidoAlumno.trim(),
         fecha_nacimiento_alumno: fechaNacimientoDate,
-        genero_alumno: genero === 'Masculino' ? 'M' : 'F',
+        genero_alumno: genero === 'Masculino' ? 'M' : 'F' || genero === 'X' ? 'X' : 'F',
         observaciones_alumno: observaciones.trim(),
         id_grado: gradoSeleccionado,
         nombre_grado: gradoData.nombre_grado,
@@ -328,7 +328,7 @@ export default function ModificarAlumno() {
       setNombreAlumno(alumno.nombre_alumno || '');
       setApellidoAlumno(alumno.apellido_alumno || '');
       setDniAlumno(alumno.dni_alumno ? alumno.dni_alumno.toString() : '');
-      setGenero(alumno.genero_alumno === 'M' ? 'Masculino' : 'Femenino');
+      setGenero(alumno.genero_alumno === 'M' ? 'Masculino' : 'Femenino' || alumno.genero_alumno === 'X' ? 'X' : 'Femenino' );
       setObservaciones(alumno.observaciones_alumno || '');
       setGradoSeleccionado(alumno.id_grado || '');
       
@@ -633,6 +633,16 @@ export default function ModificarAlumno() {
                           {genero === 'Femenino' && <Ionicons name="checkmark" size={16} color="white" />}
                         </View>
                         <Text style={styles.checkboxLabel}>Femenino </Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity 
+                        style={styles.checkboxWrapper} 
+                        onPress={() => setGenero('X')}
+                      >
+                        <View style={[styles.checkbox, genero === 'X' && styles.checkboxSelected]}>
+                          {genero === 'X' && <Ionicons name="checkmark" size={16} color="white" />}
+                        </View>
+                        <Text style={styles.checkboxLabel}>X</Text>
                       </TouchableOpacity>
                     </View>
 
