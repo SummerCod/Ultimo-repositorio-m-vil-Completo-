@@ -749,7 +749,11 @@ export default function ModificarAlumno() {
                       onFocus={() => setTelefonoFocused(true)}
                       onBlur={() => setTelefonoFocused(false)}
                     />
+
+                    <Text style={styles.colorgris}>Todos los campos con (*) son OBLIGATORIOS.</Text>
                   </View>
+
+
 
                   {/* BOTONES DE ACCIÓN */}
                   <View style={styles.actionsContainer}>
@@ -1236,5 +1240,8 @@ const styles = StyleSheet.create({
   inputContainerFocused: {
     borderColor: "#1E2A78",
     borderWidth: 2,
+  },
+  colorgris: {
+    color: "gray",
   },
 });
