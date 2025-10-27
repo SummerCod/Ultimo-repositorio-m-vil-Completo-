@@ -98,7 +98,7 @@ export default function ForgotPassword({ navigation }) {
         showCustomAlert(
           "error",
           "Usuario no encontrado",
-          "El correo ingresado no está registrado en el sistema."
+          "Hemos enviado un enlace para restablecer su contraseña a su correo electrónico. Revise la bandeja de entrada y la carpeta de spam."
         );
         setIsLoading(false);
         return;

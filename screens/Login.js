@@ -113,10 +113,10 @@ export default function Login({ navigation }) {
             errorMessage = "El formato del correo electrónico no es válido.";
             break;
           case 'auth/wrong-password':
-            errorMessage = "La contraseña es incorrecta.";
+            errorMessage = "Credenciales inválidas. Por favor, verifique su correo y contraseña";
             break;
           case 'auth/user-not-found':
-            errorMessage = "No se encontró un usuario con este correo.";
+            errorMessage = "Credenciales inválidas. Por favor, verifique su correo y contraseña";
             break;
           case 'auth/network-request-failed':
             errorMessage = "Error de conexión, por favor intenta más tarde.";
